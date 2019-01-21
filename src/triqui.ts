@@ -5,7 +5,7 @@ import {
   nextTo,
   validateMove
 } from "./engine/game";
-import { Position, Player } from "./engine/meta";
+import { Position } from "./engine/meta";
 import { Status, Result } from "./engine/result";
 import { check } from "./engine/check";
 
@@ -15,11 +15,10 @@ export class Triqui {
   game = emptyGame();
   turn = randomPlayer();
 
-  play(pos: Position, player?: Player): Result {
+  play(pos: Position): Result {
     if (this.isEnd) return this.result;
     validateMove(this.game, pos);
-    let current = player || this.turn;
-    this.game = makeMove(this.game, current, pos);
+    this.game = makeMove(this.game, this.turn, pos);
     this.result = check(this.game);
     this.turn = nextTo(this.turn);
     this.review();
