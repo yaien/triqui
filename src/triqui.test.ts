@@ -1,7 +1,7 @@
 import { Triqui } from "./triqui";
 import { Player, Position } from "./engine/meta";
 
-let { Cross, Square } = Player;
+let { Cross, Circle } = Player;
 
 it("Should play and pass to the next turn", () => {
   let triqui = new Triqui();
@@ -16,9 +16,9 @@ describe("Ending the game", () => {
   it("Should end the game on win or draw result", () => {
     triqui.turn = Cross;
     triqui.game = [
-      [Cross, Cross, Square],
-      [Square, Square, Cross],
-      [Cross, Square, null]
+      [Cross, Cross, Circle],
+      [Circle, Circle, Cross],
+      [Cross, Circle, null]
     ];
     triqui.play([2, 2]);
     expect(triqui.isEnd).toBeTruthy();

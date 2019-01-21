@@ -1,27 +1,26 @@
 import { checkFinish, checkWin, check } from "./check";
-import { emptyGame } from "./game";
 import { Player } from "./meta";
 import { plain } from "../utils";
 import { Status } from "./result";
 
-let { Square, Cross } = Player;
+let { Circle, Cross } = Player;
 
 let drawGame = [
-  [Cross, Cross, Square],
-  [Square, Square, Cross],
-  [Cross, Square, Cross]
+  [Cross, Cross, Circle],
+  [Circle, Circle, Cross],
+  [Cross, Circle, Cross]
 ];
 
 let notEndGame = [
-  [Cross, Cross, Square],
-  [Square, Square, Cross],
+  [Cross, Cross, Circle],
+  [Circle, Circle, Cross],
   [null, Cross, Cross]
 ];
 
 let winGame = [
-  [Cross, Cross, Square],
-  [Square, Square, Cross],
-  [Square, Cross, Cross]
+  [Cross, Cross, Circle],
+  [Circle, Circle, Cross],
+  [Circle, Cross, Cross]
 ];
 
 it("Should check if the game ends with a draw", () => {
@@ -36,14 +35,14 @@ it("Should check if the game is not end", () => {
 
 it("Should check the winner", () => {
   let plainGame = plain(winGame);
-  expect(checkWin(Square, plainGame)).toBeTruthy();
+  expect(checkWin(Circle, plainGame)).toBeTruthy();
   expect(checkWin(Cross, plainGame)).toBeFalsy();
 });
 
 it("Check Should return a winner status", () => {
   let result = check(winGame);
   expect(result).toHaveProperty("status", Status.Win);
-  expect(result).toHaveProperty("winner", Square);
+  expect(result).toHaveProperty("winner", Circle);
 });
 
 it("Check Should return a draw status", () => {
