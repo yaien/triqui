@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "A Tic Tac Toe engine for javascript",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
