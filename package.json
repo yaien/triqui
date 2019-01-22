@@ -1,5 +1,5 @@
 {
-  "name": "triqui-engine",
+  "name": "triqui",
   "version": "1.0.0",
   "description": "A Tic Tac Toe engine for javascript",
   "main": "dist/index.js",
